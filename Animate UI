@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIT Bombay Techfest</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: fixed;
+      top:0; left:0; width:100%;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+    nav h1 {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav ul {
+      display: flex; list-style: none;
+    }
+    nav ul li {
+      margin-left: 2rem;
+    }
+    nav ul li a {
+      color:#fff; text-decoration:none;
+      font-weight:500; position:relative;
+    }
+    nav ul li a::after {
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:0%; height:2px; background:#ff8a00;
+      transition:0.3s ease;
+    }
+    nav ul li a:hover::after {width:100%;}
+
+    .hero {
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      padding:2rem;
+      position:relative;
+    }
+
+    .hero h2 {
+      font-size:3rem;
+      margin-bottom:1rem;
+      background: linear-gradient(90deg,#00c6ff,#0072ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .hero p {
+      font-size:1.2rem;
+      max-width:600px;
+      margin: 0 auto 2rem;
+      color:#ddd;
+    }
+    .hero button {
+      padding: 0.8rem 2rem;
+      border:none;
+      border-radius:30px;
+      background: linear-gradient(90deg,#ff512f,#dd2476);
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+      box-shadow:0 0 15px rgba(255,0,150,0.5);
+      transition: transform 0.3s ease;
+    }
+    .hero button:hover {
+      transform: scale(1.1);
+    }
+
+    .circle {
+      position:absolute;
+      border-radius:50%;
+      background: rgba(255,255,255,0.1);
+      animation: float 10s infinite ease-in-out alternate;
+    }
+    .circle.small {width:80px; height:80px; top:20%; left:10%;}
+    .circle.medium {width:150px; height:150px; bottom:15%; right:15%;}
+    .circle.large {width:250px; height:250px; top:30%; right:30%;}
+
+    @keyframes float {
+      0% {transform: translateY(0px);}
+      100% {transform: translateY(-40px);}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Techfest '25</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="circle small"></div>
+    <div class="circle medium"></div>
+    <div class="circle large"></div>
+
+    <h2>Welcome to IIT Bombay Techfest 2025</h2>
+    <p>Asia’s Largest Science & Technology Festival — where innovation meets creativity, and future begins here. Experience workshops, competitions, exhibitions, and more.</p>
+    <button>Register Now</button>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.from("nav", {y:-80, duration:1, ease:"power3.out"});
+
+    gsap.from(".hero h2", {opacity:0, y:50, duration:1, delay:0.5});
+    gsap.from(".hero p", {opacity:0, y:50, duration:1, delay:1});
+    gsap.from(".hero button", {
+      opacity:0, scale:0.5, duration:1, delay:1.5,
+      onComplete: () => {
+        gsap.to(".hero button", {scale:1.05, repeat:-1, yoyo:true, duration:0.8});
+      }
+    });
+
+    gsap.utils.toArray(".circle").forEach((circle, i) => {
+      gsap.from(circle, {
+        scrollTrigger: {
+          trigger: circle,
+          start:"top 90%",
+        },
+        opacity:0, scale:0.5, duration:1, delay:i*0.2
+      });
+    });
+  </script>
+</body>
+</html>

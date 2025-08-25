@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFest Innovation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shine 4s linear infinite;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      opacity: 0.85;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: white;
+      background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+      70% { box-shadow: 0 0 0 25px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+
+    .floating-icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.6;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg);}
+      50% { transform: translateY(-30px) rotate(20deg);}
+    }
+
+    .icon1 { top: 10%; left: 15%; animation-delay: 0s; }
+    .icon2 { top: 30%; right: 20%; animation-delay: 2s; }
+    .icon3 { bottom: 15%; left: 25%; animation-delay: 4s; }
+    .icon4 { bottom: 20%; right: 15%; animation-delay: 6s; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>TechFest 2025</h1>
+    <p>Innovating the Future with Technology, Creativity, and Ideas.</p>
+    <a href="#" class="cta-btn">Join the Revolution</a>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" class="floating-icon icon1" alt="AI">
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" class="floating-icon icon2" alt="Code">
+    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103658.png" class="floating-icon icon3" alt="Robot">
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" class="floating-icon icon4" alt="Innovation">
+  </div>
+</body>
+</html>
